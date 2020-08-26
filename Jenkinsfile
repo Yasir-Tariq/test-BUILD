@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage ('Build'){
             steps {
-                sh "Echo RDBJOB"
+                sh "echo RDBJOB"
             }
         }
     }
