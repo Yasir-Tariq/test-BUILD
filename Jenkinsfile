@@ -1,17 +1,32 @@
 pipeline {
     agent any
     parameters {
-          string(defaultValue: 'RDBJOB', description: 'Enter version', name: 'VERSION')
+          string(description: 'Enter version', name: 'VERSION')
     }
     stages {
-        stage ('BRANCH'){
-            steps {
-                sh "echo ${env.BRANCH_NAME}"
-            }
-        }
         stage ('Build'){
             steps {
-                sh "echo ${params.VERSION}"
+                script {
+                    if ("${params.VERSION}".isEmpty()) {
+                        error('Version is not provided!')
+                    }
+                    else {
+                        sh "echo BUILD ${params.VERSION}"
+                    }
+                }
+                
+            }
+        }
+        stage ('Publish') {
+            steps {
+                script {
+                    if ("${params.VERSION}".isEmpty()) {
+                        error('Version is not provided!')
+                    }
+                    else {
+                        sh "echo PUBLISH ${params.VERSION}"
+                    }
+                }
             }
         }
     }
