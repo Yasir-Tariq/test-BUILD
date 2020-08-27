@@ -20,12 +20,7 @@ pipeline {
         stage ('Publish') {
             steps {
                 script {
-                    if ("${params.VERSION}".isEmpty()) {
-                        error('Version is not provided!')
-                    }
-                    else {
-                        sh "echo Version: ${params.VERSION}"
-                    }
+                    sh "echo Version: ${params.VERSION}"
                 }
             }
         }
