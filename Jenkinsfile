@@ -11,7 +11,7 @@ pipeline {
                         error('Version is not provided!')
                     }
                     else {
-                        sh "echo Version: ${params.VERSION}"
+                        sh "echo Building using Version: ${params.VERSION}"
                     }
                 }
                 
@@ -20,7 +20,7 @@ pipeline {
         stage ('Publish') {
             steps {
                 script {
-                    sh "echo Version: ${params.VERSION}"
+                    sh "echo Publishing using Version: ${params.VERSION}"
                 }
             }
         }
