@@ -11,7 +11,7 @@ pipeline {
                         error('Version is not provided!')
                     }
                     else {
-                        sh "echo BUILD ${params.VERSION}"
+                        sh "echo Version: ${params.VERSION}"
                     }
                 }
                 
@@ -24,7 +24,7 @@ pipeline {
                         error('Version is not provided!')
                     }
                     else {
-                        sh "echo PUBLISH ${params.VERSION}"
+                        sh "echo Version: ${params.VERSION}"
                     }
                 }
             }
